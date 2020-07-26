@@ -1,0 +1,71 @@
+
+#cadre{
+    width:28%;
+    float: left;
+    margin-left: 35%;
+}
+form {
+    width:100%;
+    padding: 25px;
+    border: 1px solid #f1f1f1;
+    background:#e6f5ff98;
+    box-shadow: 0 4px 17px rgba(5, 10, 90, 0.35);
+    opacity: 0.9;
+}
+
+
+input[type=text], input[type=password] {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    margin-left: 5%;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+
+input[type=submit] {
+    background-color: #5775fc;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    margin-left: 5%;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+}
+input[type=submit]:hover {
+    background-color: #e6f5ff;
+    color: #4da6ff;
+    border: 1px solid #cce6ff;
+}
+h1,h6{
+    margin-left: 25%;
+}
+.lien{
+    float:right;
+    background-color: #7ca7da;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    width: 90%;
+    height: 25px;
+    margin: 2%;
+    margin-bottom: 2%;
+    margin-right: 5%;
+    text-align: center;
+    /* box-shadow: 0 4px 17px rgba(5, 10, 90, 0.35);hsl(210, 100%, 40%) */
+    cursor: pointer;
+        }
+
+#img1{
+    width:8%;
+    float: left;
+    margin-left: 35%;
+}
+#img2{
+    width:6%;
+    float: left;
+    margin-left: 13%;
+}

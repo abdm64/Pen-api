@@ -1,0 +1,15 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+html { 
+    /* background-color: #cce6ff; */
+      height:570px;
+      background-size:cover;
+      width:auto;
+      background-image:url('src/assets/AppImage/2.jpg');
+      background-position:50% 50%;
+    } 
+
+    /*
+     background-color: #76c1d4;
+      background-color: #51d0de; 
+    background-color: #1dbab4;*/
