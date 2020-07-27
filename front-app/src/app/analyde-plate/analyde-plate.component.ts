@@ -38,8 +38,13 @@ export class AnalydePlateComponent implements OnInit {
 this._chart.createBarMontant_out(montant_out,'montant_out','montant out')
 this._chart.createBarMontant_out_in(montant_in_out, 'montant_in_out','montant in  out' )
 this._chart.createBar_nb_subs_day(nb_subs_day,'nb_subs_day','number activation  par jour')
-this._chart.createPie_nb_subs_wilaya(nb_subs_wilaya,'nb_subs_wilaya','nb_subs_wilaya')
+this._chart.createPie_nb_subs_wilaya(nb_subs_wilaya,'nb_subs_wilaya','nb_subs_wilaya','nb_suscrip')
 this._chart.createBar_active_offer(active_offer,'active_offer','active_offer')
+this._chart.createPie_custumer_value(custumer_value,"custumer_value","Custumer_value")
+this._chart.createPie_market_share(market_share,"market_share","market_share")
+this._chart.createPie_tech(tech,'tech','tech')
+
+
     })
 
 

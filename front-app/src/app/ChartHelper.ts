@@ -60,7 +60,7 @@ export class ChartHelper {
 
 
         let  bar= new Chart(name,{
-            type: 'bar',
+            type: 'line',
             data: {
                 datasets: [{
                     label: 'montant out par jour janvier',
@@ -107,6 +107,8 @@ export class ChartHelper {
         createBar_nb_subs_day(data, name,title){
 
           let years = this.getYears(data,'r')
+
+
           let nb_activation = this.getData(data,'nb_activation')
 
 
@@ -149,18 +151,18 @@ export class ChartHelper {
             }
 
 
-     createPie_nb_subs_wilaya(data, name,title){
+     createPie_nb_subs_wilaya(data, name,title,type){
 
               let nom_wilaya = this.getWilaya(data,'nom_wilaya')
-              let nb_suscrip = this.getData(data,'nb_suscrip')
-              console.log(nb_suscrip);
+              let nb_suscrip = this.getData(data,type)
+
 
               this.getRandomColor(data)
 
 
 
                 let  bar= new Chart(name,{
-                    type: 'pie',
+                    type: 'doughnut',
                     data: {
                         datasets: [{
                             label: 'number activation  par wilaya ',
@@ -247,6 +249,250 @@ export class ChartHelper {
 
 
 
+     createPie_custumer_value(data, name,title){
+
+      let Customer_Value= this.getWilaya(data,'Customer_Value')
+
+      let sum = this.getData(data,'sum')
+
+
+      this.getRandomColor(data)
+
+
+
+        let  bar= new Chart(name,{
+            type: 'pie',
+            data: {
+                datasets: [{
+                    label: 'number activation  par wilaya ',
+                    data: sum,
+                    backgroundColor: this.coloR,
+                    borderColor: this.coloR
+
+
+                },
+
+            ],
+                labels: Customer_Value
+            },
+
+
+
+            options:{
+              title:{
+                text:title,
+                display:true,
+                fontSize:20,
+                fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+
+              },
+            responsive: true
+
+
+            }
+
+
+
+
+
+          });
+
+        }
+
+
+        createPie_market_share(data, name,title){
+
+          let market_share= data[0]
+          console.log(market_share)
+
+          let company  = ['djezzy','mobilis','ooredoo']
+          let value = [market_share.djezzy, market_share.mobilis,market_share.ooredoo]
+
+
+
+          this.getRandomColor(data)
+
+
+
+            let  bar= new Chart(name,{
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        label: 'number activation  par wilaya ',
+                        data: value,
+                        backgroundColor: this.coloR,
+                        borderColor: this.coloR
+
+
+                    },
+
+                ],
+                    labels: company
+                },
+
+
+
+                options:{
+                  title:{
+                    text:title,
+                    display:true,
+                    fontSize:20,
+                    fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+
+                  },
+                responsive: true
+
+
+                }
+
+
+
+
+
+              });
+
+            }
+
+
+            createPie_tech(data, name,title){
+
+              let tech= this.getWilaya(data,'TECHNOLOGIE')
+
+              let sum = this.getData(data,'pourcentage')
+
+              this.getRandomColor(data)
+
+                let  bar= new Chart(name,{
+                    type: 'pie',
+                    data: {
+                        datasets: [{
+                            label: 'number activation  par wilaya ',
+                            data: sum ,
+                            backgroundColor: this.coloR,
+                            borderColor: this.coloR
+
+
+                        },
+
+                    ],
+                        labels: tech
+                    },
+
+
+
+                    options:{
+                      title:{
+                        text:title,
+                        display:true,
+                        fontSize:20,
+                        fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+
+                      },
+                    responsive: true
+
+
+                    }
+
+
+
+
+
+                  });
+
+                }
+
+                createBarnb_chutes_day(data, name,title){
+
+                  let years = this.getYears(data,'jour')
+                  let count = this.getData(data,'count')
+
+
+
+                    let  bar= new Chart(name,{
+                        type: 'bar',
+                        data: {
+                            datasets: [{
+                                label: 'nb_chutes_day',
+                                data: count,
+                                backgroundColor: '#86C7F3',
+                                borderColor: '#5EB4EF'
+
+
+                            },
+
+                        ],
+                            labels: years
+                        },
+
+
+
+                        options:{
+                          title:{
+                            text:title,
+                            display:true,
+                            fontSize:20,
+                            fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+
+                          },
+                        responsive: true,
+
+                        }
+
+
+                      });
+
+                    }
+
+                    createBar_nb_chutes_per(data, name,title){
+
+                      let count = this.getData(data,'count')
+                      let etat = this.getWilaya(data,'etat')
+
+
+
+
+                        let  bar= new Chart(name,{
+                            type: 'pie',
+                            data: {
+                                datasets: [{
+                                    label: 'nb_chutes_day',
+                                    data: count,
+                                    backgroundColor:['#86C7F3','#FFA1B5'],
+                                    borderColor: ['#86C7F3','#f2e6ff']
+
+
+                                },
+
+                            ],
+                                labels: etat
+                            },
+
+
+
+                            options:{
+                              title:{
+                                text:title,
+                                display:true,
+                                fontSize:20,
+                                fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+
+                              },
+                            responsive: true,
+
+                            }
+
+
+                          });
+
+                        }
+
+
+
+
+
+
+
+
 
 
 
@@ -303,4 +549,4 @@ export class ChartHelper {
 
 
 
-}
+}//Class
