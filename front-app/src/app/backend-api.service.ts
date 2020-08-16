@@ -20,7 +20,10 @@ export class BackendApiService {
 
     return this.http.get(this.url+"analysePred")
   }
+
   getTotalPred(){
     return this.http.get(this.url+"totalPred")
   }
+  //
+
 }
