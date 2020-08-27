@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   connect(user,pass){
    const username = user.value
    const password = pass.value
-   if (username === "abdm64" && password === "0000"){
+   if (username === "abdm64" && password === "0000" || username === "younes" && password === "0000" || username === "nousaiba" && password === "0000" ){
 
 //route to main page
 this.router.navigateByUrl('/Analyse-Plate');

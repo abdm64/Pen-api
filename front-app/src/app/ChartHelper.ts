@@ -3,8 +3,8 @@ import * as Chart from 'chart.js';
 
 export class ChartHelper {
 
-  ict_unit = [];
-  efficiency = [];
+   ict_unit = [];
+   efficiency = [];
    coloR = [];
 
   createBarMontant_out(data, name,title){
@@ -205,8 +205,10 @@ export class ChartHelper {
 
                 createBar_active_offer(data, name,title){
 
-                  let years = this.getYears(data,'Offer_ID')
+
+                  let years = this.getData(data,'Offer_ID')
                   let active_offer = this.getData(data,'number')
+
 
 
                     let  bar= new Chart(name,{
@@ -303,7 +305,9 @@ export class ChartHelper {
         createPie_market_share(data, name,title){
 
           let market_share= data[0]
-          console.log(market_share)
+
+
+
 
           let company  = ['djezzy','mobilis','ooredoo']
           let value = [market_share.djezzy, market_share.mobilis,market_share.ooredoo]
@@ -405,7 +409,6 @@ export class ChartHelper {
 
                   let years = this.getYears(data,'jour')
                   let count = this.getData(data,'count')
-
 
 
                     let  bar= new Chart(name,{

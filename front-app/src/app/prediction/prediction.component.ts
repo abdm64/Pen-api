@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { ChartHelper } from '../ChartHelper';
 import { BackendApiService } from '../backend-api.service';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-prediction',
@@ -8,13 +10,37 @@ import { BackendApiService } from '../backend-api.service';
   styleUrls: ['./prediction.component.css']
 })
 export class PredictionComponent implements OnInit {
+
   Total_Amount : number
   Total_Count : number
   Total_Amount1 : number
   Total_Count1 : number
+  searchTable : any
+  displayedColumns: string[] = ['num', 'commune', 'wilaya', 'etat'];
 
 
-  constructor(private _backendApi : BackendApiService, private _chart: ChartHelper) { }
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
+
+
+  constructor(private _backendApi : BackendApiService, private _chart: ChartHelper) {
+
+    this._backendApi.getSearchTable().subscribe((data : any)=> {
+      //this.searchTable = data
+ this.searchTable = new MatTableDataSource(data);
+
+
+
+      this.searchTable.paginator = this.paginator
+
+
+    })
+
+
+  }
+
+
 
   ngOnInit(): void {
 
@@ -28,7 +54,7 @@ export class PredictionComponent implements OnInit {
       const nb_chutes_day = this.getDataByrefrence(data,'nb_chutes_day')
       const nb_chutes_per = this.getDataByrefrence(data,'nb_chutes_per')
       const market_share = this.getDataByrefrence(data,'market_share')
-      //create chart
+
       this._chart.createPie_market_share(market_share,"market_share","market_share")
       this._chart.createPie_nb_subs_wilaya(nb_chutes_wilaya,'nb_chutes_wilaya','nb_chutes_wilaya','nb_chute')
       this._chart.createBarnb_chutes_day(nb_chutes_day,'nb_chutes_day','nb_chutes_day')
@@ -36,6 +62,8 @@ export class PredictionComponent implements OnInit {
 
 
     })
+
+
   }
 
   setamount(data){
@@ -54,5 +82,14 @@ export class PredictionComponent implements OnInit {
     return data[name]
   }
 
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.searchTable.filter = filterValue;
+  }
+
+
 
 }//
+
+

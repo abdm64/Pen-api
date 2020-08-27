@@ -24,6 +24,13 @@ export class BackendApiService {
   getTotalPred(){
     return this.http.get(this.url+"totalPred")
   }
-  //
+ 
+
+
+  getSearchTable(){
+    return this.http.get(this.url+'searchTable')
+  }
+
+
 
 }

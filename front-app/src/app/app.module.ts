@@ -7,7 +7,11 @@ import { AnalydePlateComponent } from './analyde-plate/analyde-plate.component';
 import { PredictionComponent } from './prediction/prediction.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ChartHelper } from './ChartHelper'
+import { ChartHelper } from './ChartHelper';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -20,9 +24,10 @@ import { ChartHelper } from './ChartHelper'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule,BrowserAnimationsModule,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule,MatTableModule,MatPaginatorModule
   ],
   providers: [ChartHelper],
   bootstrap: [AppComponent]
@@ -31,5 +36,5 @@ export class AppModule {
 
 
 
-  
+
 }

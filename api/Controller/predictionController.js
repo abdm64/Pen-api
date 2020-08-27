@@ -2,6 +2,7 @@ const pool = require('../Config/db')
 const array_req = require('../Config/request_id')
 const total = array_req.totalprediction
 const analyse = array_req.analysePrediction
+const search = array_req.searchTable
 
 
 exports.totalPrediction = async (req, res) => {
@@ -48,3 +49,21 @@ exports.totalPrediction = async (req, res) => {
       console.error(err.message);
     }
   }
+
+  exports.getSearchTable = async (req, res)=> {
+
+    try {
+      const  searchQuery = await pool.query( search[0]);
+    
+      
+    res.json(searchQuery.rows)
+    
+    } catch (err){
+    
+    
+    console.log(err.message)
+    res.send(err.message)
+    
+    }
+    
+      }

@@ -35,6 +35,7 @@ export class AnalydePlateComponent implements OnInit {
 
 
 
+
 this._chart.createBarMontant_out(montant_out,'montant_out','montant out')
 this._chart.createBarMontant_out_in(montant_in_out, 'montant_in_out','montant in  out' )
 this._chart.createBar_nb_subs_day(nb_subs_day,'nb_subs_day','number activation  par jour')
